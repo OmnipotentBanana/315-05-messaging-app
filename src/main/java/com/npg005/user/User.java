@@ -1,12 +1,14 @@
 package com.npg005.user;
 
-public class User {
-    private String username;
-    private String message;
+import java.io.Serializable;
 
-    public User(String username, String message) {
+public class User implements Serializable {
+    private String username;
+
+
+    public User(String username) {
         this.username = username;
-        this.message = message;
+
     }
 
     public String getUsername() {
@@ -15,13 +17,5 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

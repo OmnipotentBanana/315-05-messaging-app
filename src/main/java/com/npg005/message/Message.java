@@ -1,9 +1,10 @@
 package com.npg005.message;
 import com.npg005.user.User;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Message {
+public class Message implements Serializable {
     private String message;
     private LocalDateTime timeSent;
     private User user;
