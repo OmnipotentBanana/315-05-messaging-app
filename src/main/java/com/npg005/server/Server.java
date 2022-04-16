@@ -11,21 +11,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    public static void main(String[] args) throws Exception{
-        new Server();
-    }
-
-    public Server() throws Exception{
-        ServerSocket ss = new ServerSocket(5000);
-        Socket s = ss.accept();
-        System.out.println("Client connected!");
-
-        ObjectOutputStream outputStream = new ObjectOutputStream(s.getOutputStream());
-        ObjectInputStream inputStream = new ObjectInputStream(s.getInputStream());
-
-        Message recMessage = (Message)inputStream.readObject();
-
-        // String str = bf.readLine();
-        System.out.println(recMessage.getTimeSent() + " " + recMessage.getUser().getUsername() + ": " + recMessage.getMessage());
+    public static void main(String[] args){
+        ServerService serverService = new ServerService();
+        serverService.start();
     }
 }

@@ -11,9 +11,10 @@ public class Main {
         try {
             System.out.println("Please enter a username:");
             Scanner sc = new Scanner(System.in);
-            User user = new User(sc.nextLine());
+            User user = new User(sc.next());
 
             try {
+                net.start();
                 net.connectToServer();
             }catch (Exception e){
                 System.out.println("Could not establish connection");
