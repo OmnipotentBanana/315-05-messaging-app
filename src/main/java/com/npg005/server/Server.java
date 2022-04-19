@@ -11,8 +11,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         ServerService serverService = new ServerService();
         serverService.start();
+        System.out.println("1 THREAD");
+        ServerMessaging serverMessaging = new ServerMessaging();
+        serverMessaging.start();
+        System.out.println("2 THREAD");
     }
 }

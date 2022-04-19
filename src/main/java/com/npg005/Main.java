@@ -1,3 +1,5 @@
+package com.npg005;
+
 import com.npg005.network.Network;
 import com.npg005.user.User;
 
