@@ -7,9 +7,11 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Client client = new Client();
-        client.connectToServer();
+        while (!client.connectToServer()){
+            Thread.sleep(5000);
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.println("Username: ");
         Message message = new Message();
@@ -17,7 +19,6 @@ public class Main {
         while (true){
             message.setMessage(scanner.nextLine());
             message.setTimeSent(LocalDateTime.now());
-
             client.sendMessage(message);
         }
     }

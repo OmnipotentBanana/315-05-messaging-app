@@ -9,13 +9,15 @@ import java.net.Socket;
 public class Client {
     private static Socket s;
     ObjectOutputStream objectOutputStream;
-    public void connectToServer(){
+    public Boolean connectToServer(){
         try {
             s = new Socket("localhost", 10542);
             objectOutputStream = new ObjectOutputStream(s.getOutputStream());
             System.out.println("Connected to server!");
+            return true;
         }catch (IOException e){
-            System.out.println("Could not connect to server. " + e);
+            System.out.println("Could not connect to server. Retrying... " + e);
+            return false;
         }
     }
 
